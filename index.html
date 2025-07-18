@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task Planner</title>
+  <link rel="icon" type="image/png" href="Screenshot_16-7-2025_182814_www.bing.com.jpeg" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: beige;
+      font-family: Arial, sans-serif;
+    }
+
+    nav {
+      background-color: rgb(172, 185, 190);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      border-bottom: 2px solid #aaa;
+    }
+
+    .nav-item {
+      flex: 1;
+      text-align: center;
+      font-weight: italic;
+      font-size: 16px;
+      color: black;
+      border-right: 1px solid #000000;
+      padding: 10px 0;
+    }
+
+    .nav-item:last-child {
+      border-right: none;
+    }
+
+    .content {
+      display: flex;
+      height: auto;
+    }
+
+    .column {
+      flex: 1;
+      padding: 20px;
+      border-right: 1px solid #000000;
+      text-align: center;
+    }
+
+    .column:last-child {
+      border-right: none;
+    }
+
+    .column h2 {
+      color: #0077aa;
+    }
+
+    .full-box {
+      width: 80%;
+      height: 200px;
+      font-size: 16px;
+      resize: vertical;
+      border: 2px solid #807676;
+      border-radius: 5px;
+      background-color: #fefefe;
+      padding: 10px;
+    }
+
+    .wish {
+      text-align: center;
+      background-color: bisque;
+      padding: 10px 0;
+    }
+
+    .video-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      background-color: azure;
+      padding: 10px;
+    }
+
+    .button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0077aa;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #005f88;
+    }
+
+    #successMsg {
+      margin-top: 10px;
+      font-weight: bold;
+      color: green;
+    }
+
+    .done-button {
+      margin-top: 5px;
+      background-color: #aa0000;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .done-button:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    function saveTask(textareaId, msgId) {
+      const textarea = document.getElementById(textareaId);
+      const msg = document.getElementById(msgId);
+      const task = textarea.value.trim();
+
+      if (task !== "") {
+        msg.textContent = "✅ Task saved!";
+        setTimeout(() => msg.textContent = "", 3000);
+      } else {
+        msg.textContent = "❌ Please enter a task.";
+        setTimeout(() => msg.textContent = "", 2000);
+      }
+    }
+
+    function clearTask(textareaId) {
+      const textarea = document.getElementById(textareaId);
+      textarea.value = "";
+    }
+  </script>
+
+  <h1 class="wish">💡 I HOPE YOU WILL PLAN YOUR DAY WISELY 💡</h1>
+  <h2 class="wish">💫 GOOD LUCK FOR THE DAY AHEAD 💫</h2>
+
+  <nav>
+    <div class="nav-container">
+      <div class="nav-item">🚨 IMPORTANT</div>
+      <div class="nav-item">⚠️ MANDATORY</div>
+      <div class="nav-item">🪂 LEAST IMPORTANT</div>
+      <div class="nav-item">✅ TASKS</div>
+    </div>
+  </nav>
+
+  <div class="content">
+    <div class="column">
+      <textarea placeholder="Write your schedule 🪄🪄" class="full-box" id="task1"></textarea>
+      <br>
+      <button class="button" onclick="saveTask('task1', 'msg1')">Save</button>
+      <button class="done-button" onclick="clearTask('task1')">Done</button>
+      <div id="msg1"></div>
+    </div>
+
+    <div class="column">
+      <textarea placeholder="Write your schedule 🪄🪄" class="full-box" id="task2"></textarea>
+      <br>
+      <button class="button" onclick="saveTask('task2', 'msg2')">Save</button>
+      <button class="done-button" onclick="clearTask('task2')">Done</button>
+      <div id="msg2"></div>
+    </div>
+
+    <div class="column">
+      <textarea placeholder="Write your schedule 🪄🪄" class="full-box" id="task3"></textarea>
+      <br>
+      <button class="button" onclick="saveTask('task3', 'msg3')">Save</button>
+      <button class="done-button" onclick="clearTask('task3')">Done</button>
+      <div id="msg3"></div>
+    </div>
+
+    <div class="column">
+      <textarea placeholder="Write your schedule 🪄🪄" class="full-box" id="task4"></textarea>
+      <br>
+      <button class="button" onclick="saveTask('task4', 'msg4')">Save</button>
+      <button class="done-button" onclick="clearTask('task4')">Done</button>
+      <div id="msg4"></div>
+    </div>
+  </div>
+
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/fLeJJPxua3E"
+      width="500"
+      height="300"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</body>
+</html>
